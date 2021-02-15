@@ -21,4 +21,6 @@ H264 Video Decoder
    .\h264_video_decoder_demo\SDH264Player\x64\Debug\SDH264Player.exe
 
 ## 其他
-- blog
+- blog: https://blog.csdn.net/jfu22/article/details/113811529
+
+![](https://github.com/jfu222/h264_video_decoder_demo/blob/master/doc/palyer_capture.png?raw=true)
