@@ -49,7 +49,7 @@ void my_free(void *ptr);
 
 int RETURN_IF_FAILED3(int condition, int ret);
 
-#define NOT_RETURN_IF_FAILED(condition, ret)                                                      \
+#define NOT_RETURN_IF_FAILED(condition, ret)                                                  \
     do                                                                                        \
     {                                                                                         \
         if (condition)                                                                        \
@@ -65,17 +65,17 @@ int RETURN_IF_FAILED3(int condition, int ret);
         break;                                                                            \
     }
 
-#define CONTINUE_IF_FAILED(condition)                                                        \
+#define CONTINUE_IF_FAILED(condition)                                                     \
     if (condition)                                                                        \
     {                                                                                     \
         printf("%s(%d): %s: Error: ret=%d;\n", __FILE__, __LINE__, __FUNCTION__, ret);    \
-        continue;                                                                            \
+        continue;                                                                         \
     }
 
 
-#define    LOG_INFO(pszFormat, ...)     printf("[INFO] %s:(%d) %s: "pszFormat, __FILE__, __LINE__, __FUNCTION__, ##__VA_ARGS__)
-#define    LOG_ERROR(pszFormat, ...)    printf("[ERR] %s:(%d) %s: "pszFormat, __FILE__, __LINE__, __FUNCTION__, ##__VA_ARGS__)
-#define    LOG_WARN(pszFormat, ...)     printf("[WARN] %s:(%d) %s: "pszFormat, __FILE__, __LINE__, __FUNCTION__, ##__VA_ARGS__)
+#define    LOG_INFO(pszFormat, ...)     printf("[INFO] %s:(%d) %s: " pszFormat, __FILE__, __LINE__, __FUNCTION__, ##__VA_ARGS__)
+#define    LOG_ERROR(pszFormat, ...)    printf("[ERR] %s:(%d) %s: " pszFormat, __FILE__, __LINE__, __FUNCTION__, ##__VA_ARGS__)
+#define    LOG_WARN(pszFormat, ...)     printf("[WARN] %s:(%d) %s: " pszFormat, __FILE__, __LINE__, __FUNCTION__, ##__VA_ARGS__)
 
 
 typedef enum _PAYLOAD_TYPE_

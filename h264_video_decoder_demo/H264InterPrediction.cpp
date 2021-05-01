@@ -3181,7 +3181,7 @@ int CH264PictureBase::Derivation_process_for_macroblock_and_sub_macroblock_parti
 
     if (mb_type_ == MB_TYPE_NA)
     {
-        LOG_ERROR("mb_type_ == MB_TYPE_NA\n", mb_type_);
+        LOG_ERROR("mb_type_ == MB_TYPE_NA\n");
         return -1;
     }
 
