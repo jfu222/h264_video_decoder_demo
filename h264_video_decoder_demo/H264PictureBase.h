@@ -156,7 +156,7 @@ public:
     int Intra_chroma_sample_prediction_for_YUV444(uint8_t *pic_buff_chroma_pred, int32_t PicWidthInSamples); //8.3.4.5
     int Sample_construction_process_for_I_PCM_macroblocks(); //8.3.5
     
-    inline int Inverse_macroblock_scanning_process(int32_t MbaffFrameFlag, int32_t mbAddr, int32_t mb_field_decoding_flag, int32_t &x, int32_t &y); //6.4.1
+    int Inverse_macroblock_scanning_process(int32_t MbaffFrameFlag, int32_t mbAddr, int32_t mb_field_decoding_flag, int32_t &x, int32_t &y); //6.4.1
     int Inverse_sub_macroblock_partition_scanning_process(H264_MB_TYPE m_name_of_mb_type, int32_t mbPartIdx, int32_t subMbPartIdx, int32_t &x, int32_t &y); //6.4.2.2
     int Derivation_process_of_the_availability_for_macroblock_addresses(int32_t mbAddr, int32_t &is_mbAddr_available); //6.4.8
     int Derivation_process_for_neighbouring_macroblock_addresses_and_their_availability_in_MBAFF_frames(int32_t CurrMbAddr, 
@@ -296,7 +296,7 @@ public:
          int32_t &filterSamplesFlag, int32_t &indexA, int32_t &alpha, int32_t &beta); //8.7.2.2
     int Filtering_process_for_edges_with_bS_less_than_4(const uint8_t (&p)[4], const uint8_t (&q)[4], int32_t chromaEdgeFlag, int32_t chromaStyleFilteringFlag, 
             int32_t bS, int32_t beta, int32_t indexA, uint8_t (&pp)[3], uint8_t (&qq)[3]); //8.7.2.3
-    int CH264PictureBase::Filtering_process_for_edges_for_bS_equal_to_4(const uint8_t (&p)[4], const uint8_t (&q)[4], int32_t chromaEdgeFlag, int32_t chromaStyleFilteringFlag, 
+    int Filtering_process_for_edges_for_bS_equal_to_4(const uint8_t (&p)[4], const uint8_t (&q)[4], int32_t chromaEdgeFlag, int32_t chromaStyleFilteringFlag, 
             int32_t alpha, int32_t beta, uint8_t (&pp)[3], uint8_t (&qq)[3]); //8.7.2.4
 };
 
