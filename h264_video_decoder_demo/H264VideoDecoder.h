@@ -1,4 +1,4 @@
-//
+ï»¿//
 // H264VideoDecoder.h
 // h264_video_decoder_demo
 //
@@ -18,7 +18,7 @@
 #include "H264Picture.h"
 
 
-//H264½âÂëÆ÷£¬½âÂëÍêÒ»Ö¡ºóµÄ»Øµ÷º¯Êı
+//H264è§£ç å™¨ï¼Œè§£ç å®Œä¸€å¸§åçš„å›è°ƒå‡½æ•°
 typedef int (*output_frame_callback)(CH264Picture *outPicture, void *userData, int errorCode);
 
 
@@ -26,7 +26,7 @@ class CH264VideoDecoder
 {
 public:
     std::string              m_filename;
-    output_frame_callback    m_output_frame_callback; //½âÂëÍê±ÏµÄÖ¡µÄ»Øµ÷º¯Êı£¬ĞèÒªÓÃ»§Ö÷¶¯ÉèÖÃ
+    output_frame_callback    m_output_frame_callback; //è§£ç å®Œæ¯•çš„å¸§çš„å›è°ƒå‡½æ•°ï¼Œéœ€è¦ç”¨æˆ·ä¸»åŠ¨è®¾ç½®
     void *                   m_userData;
 
 public:

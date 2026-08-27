@@ -1,4 +1,4 @@
-//
+﻿//
 // H264SEI.h
 // h264_video_decoder_demo
 //

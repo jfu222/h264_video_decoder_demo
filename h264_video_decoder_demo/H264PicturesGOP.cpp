@@ -1,4 +1,4 @@
-//
+ï»¿//
 // H264PicturesGOP.cpp
 // h264_video_decoder_demo
 //
@@ -74,7 +74,7 @@ int CH264PicturesGOP::getOneEmptyPicture(CH264Picture *&pic)
 
     for (int i = 0; i < size_dpb; i++)
     {
-        if (m_DecodedPictureBuffer[i]->m_picture_coded_type == H264_PICTURE_CODED_TYPE_UNKNOWN) //ÖØ¸´ÀûÓÃ±»ÊÍ·ÅÁËµÄ²Î¿¼Ö¡
+        if (m_DecodedPictureBuffer[i]->m_picture_coded_type == H264_PICTURE_CODED_TYPE_UNKNOWN) //é‡å¤åˆ©ç”¨è¢«é‡Šæ”¾äº†çš„å‚è€ƒå¸§
         {
             pic = m_DecodedPictureBuffer[i];
             RETURN_IF_FAILED(pic == NULL, -1);
@@ -91,15 +91,15 @@ int CH264PicturesGOP::getOneOutPicture(CH264Picture *newDecodedPic, CH264Picture
     int32_t i = 0;
     int32_t index = -1;
 
-    //----------´¦ÀíPÖ¡Çé¿ö---------------
+    //----------å¤„ç†På¸§æƒ…å†µ---------------
     if (max_num_reorder_frames == 0)
     {
-        outPic = newDecodedPic; //Ö±½Ó·µ»Ø£¬Ò»°ãÎªIP±àÂë£¬¼´ÂëÁ÷ÖĞÃ»ÓĞBÖ¡µÄÇé¿ö
+        outPic = newDecodedPic; //ç›´æ¥è¿”å›ï¼Œä¸€èˆ¬ä¸ºIPç¼–ç ï¼Œå³ç æµä¸­æ²¡æœ‰Bå¸§çš„æƒ…å†µ
         return 0;
     }
     
-    //----------´¦ÀíBÖ¡Çé¿ö---------------
-    //ÏÈÕÒ³öÒÑ¾­½âÂëÍê±Ï£¬²¢ÇÒ»¹±£´æÔÚDPBÖĞµÄPOC×îĞ¡µÄÄÇÒ»Ö¡
+    //----------å¤„ç†Bå¸§æƒ…å†µ---------------
+    //å…ˆæ‰¾å‡ºå·²ç»è§£ç å®Œæ¯•ï¼Œå¹¶ä¸”è¿˜ä¿å­˜åœ¨DPBä¸­çš„POCæœ€å°çš„é‚£ä¸€å¸§
     for (i = 0; i < m_dpb_for_output_length; ++i)
     {
         RETURN_IF_FAILED(m_dpb_for_output[i] == NULL, -1);
@@ -110,15 +110,15 @@ int CH264PicturesGOP::getOneOutPicture(CH264Picture *newDecodedPic, CH264Picture
         }
     }
 
-    if (newDecodedPic == NULL) //Ò»°ã±íÊ¾½âÂë½áÊøÊ±µÄflush²Ù×÷
+    if (newDecodedPic == NULL) //ä¸€èˆ¬è¡¨ç¤ºè§£ç ç»“æŸæ—¶çš„flushæ“ä½œ
     {
-        if (m_dpb_for_output_length > 0) //ËµÃ÷m_dpb_index_for_output[]Êı×é»¹²ĞÁôÓĞÎ´Êä³öµÄÖ¡
+        if (m_dpb_for_output_length > 0) //è¯´æ˜m_dpb_index_for_output[]æ•°ç»„è¿˜æ®‹ç•™æœ‰æœªè¾“å‡ºçš„å¸§
         {
             if (index >= 0)
             {
-                outPic = m_dpb_for_output[index]; //Êä³öDPBÖĞµÄPOC×îĞ¡µÄÄÇÒ»Ö¡
+                outPic = m_dpb_for_output[index]; //è¾“å‡ºDPBä¸­çš„POCæœ€å°çš„é‚£ä¸€å¸§
             }
-            else //if (index < 0) //ËµÃ÷»º´æÖĞÃ»ÓĞÖ¡ÁË
+            else //if (index < 0) //è¯´æ˜ç¼“å­˜ä¸­æ²¡æœ‰å¸§äº†
             {
                 outPic = NULL;
                 m_dpb_for_output_length = 0;
@@ -129,34 +129,34 @@ int CH264PicturesGOP::getOneOutPicture(CH264Picture *newDecodedPic, CH264Picture
 
             for (i = index; i < m_dpb_for_output_length; ++i)
             {
-                m_dpb_for_output[i] = m_dpb_for_output[i + 1]; //Êı×éÔªËØÕûÌåÏòÇ°ÒÆ¶¯Ò»¸öµ¥Ôª
+                m_dpb_for_output[i] = m_dpb_for_output[i + 1]; //æ•°ç»„å…ƒç´ æ•´ä½“å‘å‰ç§»åŠ¨ä¸€ä¸ªå•å…ƒ
             }
         }
         else
         {
-            outPic = NULL; //ËµÃ÷»º´æÖĞ³¹µ×Ã»ÓĞÖ¡ÁË
+            outPic = NULL; //è¯´æ˜ç¼“å­˜ä¸­å½»åº•æ²¡æœ‰å¸§äº†
         }
     }
-    else //if (newDecodedPic != NULL) //Ò»°ã±íÊ¾½âÂë¹ı³ÌÖĞµÄpush_a_decoded_frame_and_get_a_display_frame²Ù×÷
+    else //if (newDecodedPic != NULL) //ä¸€èˆ¬è¡¨ç¤ºè§£ç è¿‡ç¨‹ä¸­çš„push_a_decoded_frame_and_get_a_display_frameæ“ä½œ
     {
-        if (m_dpb_for_output_length < max_num_reorder_frames) //ËµÃ÷m_dpb_index_for_output[]Êı×é»¹Ã»ÈûÂú£¬Ö»push£¬²»get
+        if (m_dpb_for_output_length < max_num_reorder_frames) //è¯´æ˜m_dpb_index_for_output[]æ•°ç»„è¿˜æ²¡å¡æ»¡ï¼Œåªpushï¼Œä¸get
         {
             m_dpb_for_output[m_dpb_for_output_length] = newDecodedPic;
             m_dpb_for_output_length++;
-            outPic = NULL; //Ä¿Ç°»¹Ã»ÓĞ¿ÉÊä³öµÄÖ¡
+            outPic = NULL; //ç›®å‰è¿˜æ²¡æœ‰å¯è¾“å‡ºçš„å¸§
         }
-        else //if (m_dpb_for_output_length >= max_num_reorder_frames) //ËµÃ÷m_dpb_index_for_output[]Êı×éÒÑÂú£¬ÏÈget£¬ÔÙpush
+        else //if (m_dpb_for_output_length >= max_num_reorder_frames) //è¯´æ˜m_dpb_index_for_output[]æ•°ç»„å·²æ»¡ï¼Œå…ˆgetï¼Œå†push
         {
             RETURN_IF_FAILED(index < 0, -1);
 
             if (newDecodedPic->m_picture_frame.PicOrderCnt < m_dpb_for_output[index]->m_picture_frame.PicOrderCnt)
             {
-                outPic = newDecodedPic; //ËµÃ÷µ±Ç°ĞÂÊäÈëµÄÒÑ½âÂëÖ¡µÄPOCÊÇ×îĞ¡µÄ£¬Ò»°ãÎªBÖ¡
+                outPic = newDecodedPic; //è¯´æ˜å½“å‰æ–°è¾“å…¥çš„å·²è§£ç å¸§çš„POCæ˜¯æœ€å°çš„ï¼Œä¸€èˆ¬ä¸ºBå¸§
             }
             else
             {
-                outPic = m_dpb_for_output[index]; //Êä³öDPBÖĞµÄPOC×îĞ¡µÄÄÇÒ»Ö¡
-                m_dpb_for_output[index] = newDecodedPic; //Ïàµ±ÓÚpush a frame
+                outPic = m_dpb_for_output[index]; //è¾“å‡ºDPBä¸­çš„POCæœ€å°çš„é‚£ä¸€å¸§
+                m_dpb_for_output[index] = newDecodedPic; //ç›¸å½“äºpush a frame
             }
         }
     }

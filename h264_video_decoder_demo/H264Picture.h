@@ -1,4 +1,4 @@
-//
+ï»¿//
 // H264Picture.h
 // h264_video_decoder_demo
 //
@@ -22,11 +22,11 @@ public:
     CH264PictureBase           m_picture_frame;
     CH264PictureBase           m_picture_top_filed;
     CH264PictureBase           m_picture_bottom_filed;
-    CH264PictureBase *         m_current_picture_ptr; //Ö¸Ïòm_picture_frame»òÕßm_picture_top_filed»òÕßm_picture_bottom_filed
-    CH264PictureBase *         m_picture_previous_ref; //Ç°Ò»¸öÒÑ½âÂëµÄ²Î¿¼Í¼Ïñ
-    CH264PictureBase *         m_picture_previous; //Ç°Ò»¸öÒÑ½âÂëµÄÍ¼Ïñ
+    CH264PictureBase *         m_current_picture_ptr; //æŒ‡å‘m_picture_frameæˆ–è€…m_picture_top_filedæˆ–è€…m_picture_bottom_filed
+    CH264PictureBase *         m_picture_previous_ref; //å‰ä¸€ä¸ªå·²è§£ç çš„å‚è€ƒå›¾åƒ
+    CH264PictureBase *         m_picture_previous; //å‰ä¸€ä¸ªå·²è§£ç çš„å›¾åƒ
     H264_PICTURE_CODED_TYPE    m_picture_coded_type; //H264_PICTURE_CODED_TYPE_FRAME
-    H264_PICTURE_CODED_TYPE    m_picture_coded_type_marked_as_refrence; //Õû¸öÖ¡»òÄÄÒ»³¡±»±ê¼ÇÎª²Î¿¼Ö¡»ò²Î¿¼³¡
+    H264_PICTURE_CODED_TYPE    m_picture_coded_type_marked_as_refrence; //æ•´ä¸ªå¸§æˆ–å“ªä¸€åœºè¢«æ ‡è®°ä¸ºå‚è€ƒå¸§æˆ–å‚è€ƒåœº
     
     int32_t         TopFieldOrderCnt;
     int32_t         BottomFieldOrderCnt;
@@ -38,11 +38,11 @@ public:
     int32_t         frameNumInPicOrderCntCycle;
     int32_t         expectedPicOrderCnt;
     int32_t         PicOrderCnt;
-    int32_t         PicNum; //To each short-term reference picture ¶ÌÆÚ²Î¿¼Í¼Ïñ
-    int32_t         LongTermPicNum; //To each long-term reference picture ³¤ÆÚ²Î¿¼Í¼Ïñ
-    H264_PICTURE_MARKED_AS         reference_marked_type; //I,P×÷Îª²Î¿¼Ö¡µÄmark×´Ì¬
-    int32_t         m_is_decode_finished; //±¾Ö¡ÊÇ·ñ½âÂëÍê±Ï; 0-Î´½âÂëÍê±Ï£¬1-ÒÑ¾­½âÂëÍê±Ï
-    int32_t         m_is_in_use; //±¾Ö¡Êı¾İÊÇ·ñÕıÔÚÊ¹ÓÃ; 0-Î´Ê¹ÓÃ£¬1-ÕıÔÚÊ¹ÓÃ
+    int32_t         PicNum; //To each short-term reference picture çŸ­æœŸå‚è€ƒå›¾åƒ
+    int32_t         LongTermPicNum; //To each long-term reference picture é•¿æœŸå‚è€ƒå›¾åƒ
+    H264_PICTURE_MARKED_AS         reference_marked_type; //I,Pä½œä¸ºå‚è€ƒå¸§çš„markçŠ¶æ€
+    int32_t         m_is_decode_finished; //æœ¬å¸§æ˜¯å¦è§£ç å®Œæ¯•; 0-æœªè§£ç å®Œæ¯•ï¼Œ1-å·²ç»è§£ç å®Œæ¯•
+    int32_t         m_is_in_use; //æœ¬å¸§æ•°æ®æ˜¯å¦æ­£åœ¨ä½¿ç”¨; 0-æœªä½¿ç”¨ï¼Œ1-æ­£åœ¨ä½¿ç”¨
 
 public:
     CH264Picture();

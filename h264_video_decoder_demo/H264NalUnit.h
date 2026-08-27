@@ -1,4 +1,4 @@
-//
+ï»¿//
 // H264NalUnit.h
 // h264_video_decoder_demo
 //
@@ -33,7 +33,7 @@ public:
     uint8_t *   rbsp_byte; //my_malloc(NumBytesInNALunit);    Raw byte sequence payloads.
     int32_t     NumBytesInNALunit;
     int32_t     NumBytesInRBSP;
-    int32_t     IdrPicFlag; //ÊÇ·ñÊÇÁ¢¼´Ë¢ĞÂÖ¡µÄ±ê¼Ç
+    int32_t     IdrPicFlag; //æ˜¯å¦æ˜¯ç«‹å³åˆ·æ–°å¸§çš„æ ‡è®°
     int32_t     m_is_malloc_mem_self;
 
 public:
@@ -44,7 +44,7 @@ public:
 
     int init(int numBytesInNALunit);
     int unInit();
-    CH264NalUnit & operator = (const CH264NalUnit &src); //ÖØÔØµÈºÅÔËËã·û
+    CH264NalUnit & operator = (const CH264NalUnit &src); //é‡è½½ç­‰å·è¿ç®—ç¬¦
     int copyData(const CH264NalUnit &src, bool isMallocAndCopyData);
     int getH264RbspFromNalUnit(unsigned char *srcData, int srcSize);
 };

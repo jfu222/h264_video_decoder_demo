@@ -1,4 +1,4 @@
-//
+Ôªø//
 // H264Picture.cpp
 // h264_video_decoder_demo
 //
@@ -43,7 +43,7 @@ int CH264Picture::init()
     LongTermPicNum= 0;
     reference_marked_type = H264_PICTURE_MARKED_AS_unkown;
     m_is_decode_finished = 0;
-    m_is_in_use = 0; //œ–÷√◊¥Ã¨
+    m_is_in_use = 0; //Èó≤ÁΩÆÁä∂ÊÄÅ
 
     return 0;
 }
@@ -71,7 +71,7 @@ int CH264Picture::reset()
     LongTermPicNum= 0;
     reference_marked_type = H264_PICTURE_MARKED_AS_unkown;
     m_is_decode_finished = 0;
-    m_is_in_use = 1; //’˝‘⁄ π”√◊¥Ã¨
+    m_is_in_use = 1; //Ê≠£Âú®‰ΩøÁî®Áä∂ÊÄÅ
 
     return 0;
 }
@@ -127,7 +127,7 @@ int CH264Picture::decode_one_slice(CH264SliceHeader &slice_header, CBitstream &b
     int32_t size_pdb = 16;
     int32_t i = 0;
     
-    //----------------÷°----------------------------------
+    //----------------Â∏ß----------------------------------
     m_picture_coded_type = H264_PICTURE_CODED_TYPE_FRAME;
     m_picture_frame.m_picture_coded_type = H264_PICTURE_CODED_TYPE_FRAME;
     m_picture_frame.m_parent = this;
@@ -139,14 +139,14 @@ int CH264Picture::decode_one_slice(CH264SliceHeader &slice_header, CBitstream &b
     ret = m_picture_frame.init(slice_header);
     RETURN_IF_FAILED(ret != 0, ret);
 
-    //----------------∂•≥°-------------------------------
+    //----------------È°∂Âú∫-------------------------------
     m_picture_top_filed.m_picture_coded_type = H264_PICTURE_CODED_TYPE_TOP_FIELD;
     m_picture_top_filed.m_parent = this;
 
     ret = m_picture_top_filed.init(slice_header);
     RETURN_IF_FAILED(ret != 0, ret);
 
-    //----------------µ◊≥°-------------------------------
+    //----------------Â∫ïÂú∫-------------------------------
     m_picture_bottom_filed.m_picture_coded_type = H264_PICTURE_CODED_TYPE_BOTTOM_FIELD;
     m_picture_bottom_filed.m_parent = this;
 
@@ -154,22 +154,22 @@ int CH264Picture::decode_one_slice(CH264SliceHeader &slice_header, CBitstream &b
     RETURN_IF_FAILED(ret != 0, ret);
     
     //--------------------------------------------
-    if (slice_header.field_pic_flag == 0) //÷°
+    if (slice_header.field_pic_flag == 0) //Â∏ß
     {
         ret = m_picture_frame.m_h264_slice_data.slice_data(bs, m_picture_frame, slice_header.slice_id);
         RETURN_IF_FAILED(ret != 0, ret);
     }
-    else //if (slice_header.field_pic_flag == 1) //≥°
+    else //if (slice_header.field_pic_flag == 1) //Âú∫
     {
         m_picture_coded_type = H264_PICTURE_CODED_TYPE_COMPLEMENTARY_FIELD_PAIR;
-        if (slice_header.bottom_field_flag == 0) //∂•≥°
+        if (slice_header.bottom_field_flag == 0) //È°∂Âú∫
         {
             m_current_picture_ptr = &m_picture_top_filed;
 
             ret = m_picture_top_filed.m_h264_slice_data.slice_data(bs, m_picture_top_filed, slice_header.slice_id);
             RETURN_IF_FAILED(ret != 0, ret);
         }
-        else //if (slice_header.bottom_field_flag == 1) //µ◊≥°
+        else //if (slice_header.bottom_field_flag == 1) //Â∫ïÂú∫
         {
             m_current_picture_ptr = &m_picture_bottom_filed;
 
@@ -178,7 +178,7 @@ int CH264Picture::decode_one_slice(CH264SliceHeader &slice_header, CBitstream &b
         }
     }
 
-    m_is_in_use = 1; //’˝‘⁄ π”√◊¥Ã¨
+    m_is_in_use = 1; //Ê≠£Âú®‰ΩøÁî®Áä∂ÊÄÅ
 
     return 0;
 }

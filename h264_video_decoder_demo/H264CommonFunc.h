@@ -1,4 +1,4 @@
-//
+ï»¿//
 // H264CommonFunc.h
 // h264_video_decoder_demo
 //
@@ -28,7 +28,7 @@
 
 /*
  * T-REC-H.264-201704-S!!PDF-E.pdf
- * Table 7-1 ¨C NAL unit type codes
+ * Table 7-1 â€“ NAL unit type codes
  */
 typedef enum _H264_NAL_
 {
@@ -70,25 +70,25 @@ typedef enum _H264_NAL_
 typedef enum _H264_PICTURE_CODED_TYPE_
 {
     H264_PICTURE_CODED_TYPE_UNKNOWN = 0,
-    H264_PICTURE_CODED_TYPE_FRAME = 1, //Ö¡
-    H264_PICTURE_CODED_TYPE_FIELD = 2, //³¡
-    H264_PICTURE_CODED_TYPE_TOP_FIELD = 3, //¶¥³¡
-    H264_PICTURE_CODED_TYPE_BOTTOM_FIELD = 4, //µ×³¡
-    H264_PICTURE_CODED_TYPE_COMPLEMENTARY_FIELD_PAIR = 5, //»¥²¹³¡¶Ô
+    H264_PICTURE_CODED_TYPE_FRAME = 1, //å¸§
+    H264_PICTURE_CODED_TYPE_FIELD = 2, //åœº
+    H264_PICTURE_CODED_TYPE_TOP_FIELD = 3, //é¡¶åœº
+    H264_PICTURE_CODED_TYPE_BOTTOM_FIELD = 4, //åº•åœº
+    H264_PICTURE_CODED_TYPE_COMPLEMENTARY_FIELD_PAIR = 5, //äº’è¡¥åœºå¯¹
 }H264_PICTURE_CODED_TYPE;
 
 
 typedef enum _H264_PICTURE_TYPE_
 {
     H264_PICTURE_TYPE_UNKNOWN = 0,
-    H264_PICTURE_TYPE_I = 1, //I Ö¡£¨IÖ¡²»Ò»¶¨ÊÇIDRÖ¡£©
-    H264_PICTURE_TYPE_P = 2, //P Ö¡
-    H264_PICTURE_TYPE_B = 3, //B Ö¡
-    H264_PICTURE_TYPE_IDR = 4, //IDR Ö¡£¨IDRÖ¡Ò»¶¨ÊÇIÖ¡£©
+    H264_PICTURE_TYPE_I = 1, //I å¸§ï¼ˆIå¸§ä¸ä¸€å®šæ˜¯IDRå¸§ï¼‰
+    H264_PICTURE_TYPE_P = 2, //P å¸§
+    H264_PICTURE_TYPE_B = 3, //B å¸§
+    H264_PICTURE_TYPE_IDR = 4, //IDR å¸§ï¼ˆIDRå¸§ä¸€å®šæ˜¯Iå¸§ï¼‰
 }H264_PICTURE_TYPE;
 
 
-//ºê¿é²Ğ²î·ùÖµÀàĞÍ
+//å®å—æ®‹å·®å¹…å€¼ç±»å‹
 typedef enum _MB_RESIDUAL_LEVEL_
 {
     MB_RESIDUAL_UNKOWN = -1,
@@ -114,7 +114,7 @@ typedef enum _MB_RESIDUAL_LEVEL_
 
 
 /*
- * Figure 6-14 ¨C Determination of the neighbouring macroblock, blocks, and partitions (informative)
+ * Figure 6-14 â€“ Determination of the neighbouring macroblock, blocks, and partitions (informative)
  *    D    B    C
  *    A    Current Macroblock or Partition or Block
  */
@@ -134,7 +134,7 @@ typedef enum _MB_ADDR_TYPE_
 }MB_ADDR_TYPE;
 
 
-//Table 8-8 ¨C Specification of mbAddrCol, yM, and vertMvScale
+//Table 8-8 â€“ Specification of mbAddrCol, yM, and vertMvScale
 typedef enum _H264_VERT_MV_SCALE_
 {
     H264_VERT_MV_SCALE_UNKNOWN = 0,
@@ -145,7 +145,7 @@ typedef enum _H264_VERT_MV_SCALE_
 
 
 //------------------------------------------------
-//Table 7-6 ¨C Name association to slice_type
+//Table 7-6 â€“ Name association to slice_type
 typedef enum _H264_SLIECE_TYPE_
 {
     H264_SLIECE_TYPE_P   = 0,
@@ -162,7 +162,7 @@ typedef enum _H264_SLIECE_TYPE_
 
 
 //------------------------------------------------
-//Table 7-9 ¨C Memory management control operation (memory_management_control_operation) values
+//Table 7-9 â€“ Memory management control operation (memory_management_control_operation) values
 typedef enum _H264_PICTURE_MARKED_AS_
 {
     H264_PICTURE_MARKED_AS_unkown = 0,
@@ -176,7 +176,7 @@ typedef enum _H264_PICTURE_MARKED_AS_
 
 
 //------------------------------------------------
-// Table 7-11 ¨C Macroblock types for I slices
+// Table 7-11 â€“ Macroblock types for I slices
 typedef enum _H264_MB_TYPE_
 {
     MB_TYPE_NA,
@@ -292,7 +292,7 @@ typedef enum _H264_MB_PART_PRED_MODE_
 
 
 //--------------------------
-//Table 8-2 ¨C Specification of Intra4x4PredMode[ luma4x4BlkIdx ] and associated names
+//Table 8-2 â€“ Specification of Intra4x4PredMode[ luma4x4BlkIdx ] and associated names
 #define    Prediction_Mode_Intra_4x4_Vertical               0
 #define    Prediction_Mode_Intra_4x4_Horizontal             1
 #define    Prediction_Mode_Intra_4x4_DC                     2
@@ -304,7 +304,7 @@ typedef enum _H264_MB_PART_PRED_MODE_
 #define    Prediction_Mode_Intra_4x4_Horizontal_Up          8
 
 //--------------------------
-//Table 8-3 ¨C Specification of Intra8x8PredMode[ luma8x8BlkIdx ] and associated names
+//Table 8-3 â€“ Specification of Intra8x8PredMode[ luma8x8BlkIdx ] and associated names
 #define    Prediction_Mode_Intra_8x8_Vertical               0
 #define    Prediction_Mode_Intra_8x8_Horizontal             1
 #define    Prediction_Mode_Intra_8x8_DC                     2
@@ -316,14 +316,14 @@ typedef enum _H264_MB_PART_PRED_MODE_
 #define    Prediction_Mode_Intra_8x8_Horizontal_Up          8
 
 //--------------------------
-//Table 8-4 ¨C Specification of Intra16x16PredMode and associated names
+//Table 8-4 â€“ Specification of Intra16x16PredMode and associated names
 #define    Prediction_Mode_Intra_16x16_Vertical             0
 #define    Prediction_Mode_Intra_16x16_Horizontal           1
 #define    Prediction_Mode_Intra_16x16_DC                   2
 #define    Prediction_Mode_Intra_16x16_Plane                3
 
 //--------------------------
-//Table 8-5 ¨C Specification of Intra chroma prediction modes and associated names
+//Table 8-5 â€“ Specification of Intra chroma prediction modes and associated names
 #define    Prediction_Mode_Intra_Chroma_DC                  0
 #define    Prediction_Mode_Intra_Chroma_Horizontal          1
 #define    Prediction_Mode_Intra_Chroma_Vertical            2
@@ -357,8 +357,8 @@ typedef enum _H264_MB_PART_PRED_MODE_
 
 
 //syntax element type
-//H264Óï·¨ÔªËØÀàĞÍ£¬Ö÷ÒªÓÃÓÚCABACËãÊõ½âÂë
-//Table 9-11 ¨C Association of ctxIdx and syntax elements for each slice type in the initialisation process
+//H264è¯­æ³•å…ƒç´ ç±»å‹ï¼Œä¸»è¦ç”¨äºCABACç®—æœ¯è§£ç 
+//Table 9-11 â€“ Association of ctxIdx and syntax elements for each slice type in the initialisation process
 typedef enum _H264_SYNTAX_ELEMENT_TYPE_
 {
     H264_SYNTAX_ELEMENT_TYPE_UNKNOWN,
@@ -437,10 +437,10 @@ typedef struct
 
 typedef struct
 {
-    unsigned char rgbBlue; //¸ÃÑÕÉ«µÄÀ¶É«·ÖÁ¿
-    unsigned char rgbGreen; //¸ÃÑÕÉ«µÄÂÌÉ«·ÖÁ¿
-    unsigned char rgbRed; //¸ÃÑÕÉ«µÄºìÉ«·ÖÁ¿
-    unsigned char rgbReserved; //±£ÁôÖµ
+    unsigned char rgbBlue; //è¯¥é¢œè‰²çš„è“è‰²åˆ†é‡
+    unsigned char rgbGreen; //è¯¥é¢œè‰²çš„ç»¿è‰²åˆ†é‡
+    unsigned char rgbRed; //è¯¥é¢œè‰²çš„çº¢è‰²åˆ†é‡
+    unsigned char rgbReserved; //ä¿ç•™å€¼
 }MY_RgbQuad;
 
 
@@ -473,14 +473,14 @@ int rbsp_slice_trailing_bits(CBitstream &bs, int32_t entropy_coding_mode_flag);
 int InverseRasterScan(int32_t a, int32_t b, int32_t c, int32_t d, int32_t e);
 
 
-//-----------´íÎóÂë-----------------
+//-----------é”™è¯¯ç -----------------
 typedef enum _H264_DECODE_ERROR_CODE_
 {
-    H264_DECODE_ERROR_CODE_UNKNOWN = 0, //Î´Öª´íÎó
-    H264_DECODE_ERROR_CODE_FILE_END, //µ½´ïÎÄ¼şÄ©Î²£¬ÊÓÆµ½âÂëÍê±Ï
-    H264_DECODE_ERROR_CODE_OPEN_FILE_FAILED, //´ò¿ªÎÄ¼şÊ§°Ü
-    H264_DECODE_ERROR_CODE_NEED_MORE_DATA, //ĞèÒª¸ü¶àµÄÂëÁ÷Êı¾İ
-    H264_DECODE_ERROR_CODE_NO_MORE_FRAMES, //Ã»ÓĞ¸ü¶àµÄÖ¡ÁË
+    H264_DECODE_ERROR_CODE_UNKNOWN = 0, //æœªçŸ¥é”™è¯¯
+    H264_DECODE_ERROR_CODE_FILE_END, //åˆ°è¾¾æ–‡ä»¶æœ«å°¾ï¼Œè§†é¢‘è§£ç å®Œæ¯•
+    H264_DECODE_ERROR_CODE_OPEN_FILE_FAILED, //æ‰“å¼€æ–‡ä»¶å¤±è´¥
+    H264_DECODE_ERROR_CODE_NEED_MORE_DATA, //éœ€è¦æ›´å¤šçš„ç æµæ•°æ®
+    H264_DECODE_ERROR_CODE_NO_MORE_FRAMES, //æ²¡æœ‰æ›´å¤šçš„å¸§äº†
 }H264_DECODE_ERROR_CODE;
 
 

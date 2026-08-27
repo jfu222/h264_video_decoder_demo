@@ -1,4 +1,4 @@
-//
+ï»¿//
 // H264Cabac.h
 // h264_video_decoder_demo
 //
@@ -22,7 +22,7 @@ class CH264PictureBase;
 
 //------------------------------------------------------------
 //Context-Based Adaptive Binary Arithmetic Coding (CABAC)
-//»ùÓÚÉÏÏÂÎÄ×ÔÊÊÓ¦¶ş½øÖÆËãÊõìØ±àÂë
+//åŸºäºä¸Šä¸‹æ–‡è‡ªé€‚åº”äºŒè¿›åˆ¶ç®—æœ¯ç†µç¼–ç 
 class CH264Cabac
 {
 public:

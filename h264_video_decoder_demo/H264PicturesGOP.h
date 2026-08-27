@@ -1,4 +1,4 @@
-//
+ï»¿//
 // H264PicturesGOP.h
 // h264_video_decoder_demo
 //
@@ -28,9 +28,9 @@ public:
     CH264SEI            m_sei;
     
     CH264Picture *      m_DecodedPictureBuffer[H264_MAX_DECODED_PICTURE_BUFFER_COUNT]; //DPB: decoded picture buffer
-    CH264Picture *      m_dpb_for_output[H264_MAX_DECODED_PICTURE_BUFFER_COUNT]; //ÒòÎªº¬ÓĞBÖ¡µÄÊÓÆµÖ¡µÄÏÔÊ¾Ë³ĞòºÍ½âÂëË³ĞòÊÇ²»Ò»ÑùµÄ£¬ÒÑ¾­½âÂëÍêµÄP/BÖ¡²»ÄÜÁ¢¼´Êä³ö¸øÓÃ»§£¬ĞèÒªÏÈ»º´æÒ»ÏÂ£¬
-    int32_t             m_dpb_for_output_length; //m_dpb_index_for_output[]Êı×éµÄÕæÊµ´óĞ¡£¬´ËÖµÊÇ¶¯Ì¬±ä»¯µÄ£¬È¡Öµ·¶Î§[0, max_num_reorder_frames-1]
-    int32_t             max_num_reorder_frames; //m_dpb_index_for_output[]Êı×éµÄ×î´ó´óĞ¡£¬À´Ô´ÓÚm_spss[i].m_vui.max_num_reorder_frames£¬¶ÔÓÚº¬BÖ¡µÄÊÓÆµ£¬´ËÖµÒ»°ãµÈÓÚ2
+    CH264Picture *      m_dpb_for_output[H264_MAX_DECODED_PICTURE_BUFFER_COUNT]; //å› ä¸ºå«æœ‰Bå¸§çš„è§†é¢‘å¸§çš„æ˜¾ç¤ºé¡ºåºå’Œè§£ç é¡ºåºæ˜¯ä¸ä¸€æ ·çš„ï¼Œå·²ç»è§£ç å®Œçš„P/Bå¸§ä¸èƒ½ç«‹å³è¾“å‡ºç»™ç”¨æˆ·ï¼Œéœ€è¦å…ˆç¼“å­˜ä¸€ä¸‹ï¼Œ
+    int32_t             m_dpb_for_output_length; //m_dpb_index_for_output[]æ•°ç»„çš„çœŸå®å¤§å°ï¼Œæ­¤å€¼æ˜¯åŠ¨æ€å˜åŒ–çš„ï¼Œå–å€¼èŒƒå›´[0, max_num_reorder_frames-1]
+    int32_t             max_num_reorder_frames; //m_dpb_index_for_output[]æ•°ç»„çš„æœ€å¤§å¤§å°ï¼Œæ¥æºäºm_spss[i].m_vui.max_num_reorder_framesï¼Œå¯¹äºå«Bå¸§çš„è§†é¢‘ï¼Œæ­¤å€¼ä¸€èˆ¬ç­‰äº2
 
     CH264Picture        m_picture_previous_reference;
     CH264Picture        m_picture_previous;

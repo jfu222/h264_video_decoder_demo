@@ -1,4 +1,4 @@
-//
+﻿//
 // version.h
 // h264_video_decoder_demo
 //

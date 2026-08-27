@@ -1,4 +1,4 @@
-//
+ï»¿//
 // H264Golomb.h
 // h264_video_decoder_demo
 //
@@ -31,7 +31,7 @@ typedef enum
  * T-REC-H.264-201704-S!!PDF-E.pdf
  * Page 208/230/812
  * 9.1 Parsing process for Exp-Golomb codes
- * ¸çÂ×²¼±àÂë
+ * å“¥ä¼¦å¸ƒç¼–ç 
  */
 class CH264Golomb
 {

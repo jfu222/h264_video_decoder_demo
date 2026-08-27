@@ -1,4 +1,4 @@
-//
+﻿//
 // H264SPSMVCExt.h
 // h264_video_decoder_demo
 //

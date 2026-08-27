@@ -1,4 +1,4 @@
-//
+﻿//
 // H264HrdParameters.cpp
 // h264_video_decoder_demo
 //

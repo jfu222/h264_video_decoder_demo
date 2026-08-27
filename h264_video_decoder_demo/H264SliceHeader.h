@@ -1,4 +1,4 @@
-//
+ï»¿//
 // H264SliceHeader.h
 // h264_video_decoder_demo
 //
@@ -58,7 +58,7 @@ public:
     int32_t     slice_qp_delta; // 2 se(v)
     int32_t     sp_for_switch_flag; // 2 u(1)
     int32_t     slice_qs_delta; // 2 se(v)
-    int32_t     disable_deblocking_filter_idc; // 2 ue(v) 0£º¿ªÆô»·Â·ÂË²¨£¬ÂË²¨¿É¿çÔ½slice±ß½ç¡£1£º¹Ø±Õ»·Â·ÂË²¨¡£2£º¿ªÆô»·Â·ÂË²¨£¬Ö»Õë¶ÔÍ¬Ò»¸ösliceÂË²¨¡£
+    int32_t     disable_deblocking_filter_idc; // 2 ue(v) 0ï¼šå¼€å¯ç¯è·¯æ»¤æ³¢ï¼Œæ»¤æ³¢å¯è·¨è¶Šsliceè¾¹ç•Œã€‚1ï¼šå…³é—­ç¯è·¯æ»¤æ³¢ã€‚2ï¼šå¼€å¯ç¯è·¯æ»¤æ³¢ï¼Œåªé’ˆå¯¹åŒä¸€ä¸ªsliceæ»¤æ³¢ã€‚
     int32_t     slice_alpha_c0_offset_div2; // 2 se(v)
     int32_t     slice_beta_offset_div2; // 2 se(v)
     int32_t     slice_group_change_cycle; // 2 u(v)
@@ -69,8 +69,8 @@ public:
     int32_t     abs_diff_pic_num_minus1[2][32]; // 2 ue(v)
     int32_t     long_term_pic_num[2][32]; // 2 ue(v)
     int32_t     ref_pic_list_modification_flag_l1; // 2 u(1)
-    int32_t     ref_pic_list_modification_count_l0; //modification_of_pic_nums_idc[0]Êı×é´óĞ¡
-    int32_t     ref_pic_list_modification_count_l1; //modification_of_pic_nums_idc[1]Êı×é´óĞ¡
+    int32_t     ref_pic_list_modification_count_l0; //modification_of_pic_nums_idc[0]æ•°ç»„å¤§å°
+    int32_t     ref_pic_list_modification_count_l1; //modification_of_pic_nums_idc[1]æ•°ç»„å¤§å°
     
     // pred_weight_table
     int32_t     luma_log2_weight_denom; // 2 ue(v)
@@ -93,7 +93,7 @@ public:
     int32_t     long_term_reference_flag; // 2 | 5 u(1)
     int32_t     adaptive_ref_pic_marking_mode_flag; // 2 | 5 u(1)
     DEC_REF_PIC_MARKING    m_dec_ref_pic_marking[32];
-    int32_t     dec_ref_pic_marking_count; //m_dec_ref_pic_marking[]Êı×é´óĞ¡
+    int32_t     dec_ref_pic_marking_count; //m_dec_ref_pic_marking[]æ•°ç»„å¤§å°
     
     CH264NalUnit    m_nal_unit;
     CH264SPS        m_sps;
@@ -102,12 +102,12 @@ public:
     int32_t         slice_id;
     int32_t         syntax_element_categories; // 2 | 3 | 4
     int32_t         slice_type_fixed;
-    int32_t         mb_cnt; //ÓÃÓÚ¼ÆÊıÒÑ¾­½âÂëÁË¶àÉÙ¸öºê¿é£¬·¶Î§[0, PicSizeInMbs-1]
-    int32_t         QPY_prev; //QPY,PREV ÊÇµ±Ç° slice ÖĞÇ°Ò»ºê¿éµÄÁ¿»¯²ÎÊı QPY µÄÖµ£¬ÔÚÃ¿¸ö slice µÄ¿ªÊ¼´¦£¬¶ÔÓÚ slice ÖĞµÄµÚÒ»¸öºê¿é£¬QPY,PREV Ó¦¸Ã±»³õÊ¼»¯³ÉµÈÊ½ 7-16 ÖĞµÄ SliceQPY Öµ¡£
+    int32_t         mb_cnt; //ç”¨äºè®¡æ•°å·²ç»è§£ç äº†å¤šå°‘ä¸ªå®å—ï¼ŒèŒƒå›´[0, PicSizeInMbs-1]
+    int32_t         QPY_prev; //QPY,PREV æ˜¯å½“å‰ slice ä¸­å‰ä¸€å®å—çš„é‡åŒ–å‚æ•° QPY çš„å€¼ï¼Œåœ¨æ¯ä¸ª slice çš„å¼€å§‹å¤„ï¼Œå¯¹äº slice ä¸­çš„ç¬¬ä¸€ä¸ªå®å—ï¼ŒQPY,PREV åº”è¯¥è¢«åˆå§‹åŒ–æˆç­‰å¼ 7-16 ä¸­çš„ SliceQPY å€¼ã€‚
     int32_t         SliceQPY; //SliceQPY = 26 + pic_init_qp_minus26 + slice_qp_delta;
     int32_t         MbaffFrameFlag; //MbaffFrameFlag = ( mb_adaptive_frame_field_flag && !field_pic_flag );
     int32_t         PicHeightInMbs; //PicHeightInMbs = FrameHeightInMbs / ( 1 + field_pic_flag );
-    int32_t         PicHeightInSamplesL; //PicHeightInSamplesL = PicHeightInMbs * 16; //½âÂëºóÍ¼Æ¬µÄ¸ß¶È£¨µ¥Î»£ºÏñËØ£©
+    int32_t         PicHeightInSamplesL; //PicHeightInSamplesL = PicHeightInMbs * 16; //è§£ç åå›¾ç‰‡çš„é«˜åº¦ï¼ˆå•ä½ï¼šåƒç´ ï¼‰
     int32_t         PicHeightInSamplesC; //PicHeightInSamplesC = PicHeightInMbs * MbHeightC;
     int32_t         PicSizeInMbs; //PicSizeInMbs = PicWidthInMbs * PicHeightInMbs;
     int32_t         MaxPicNum; //MaxPicNum = (field_pic_flag == 0) ? MaxFrameNum : (2 * MaxFrameNum);
@@ -130,13 +130,13 @@ public:
     int32_t         ScalingList4x4[6][16];
     int32_t         ScalingList8x8[6][64];
     H264_PICTURE_CODED_TYPE    m_picture_coded_type;
-    int32_t                    m_is_malloc_mem_self; //ÊÇ·ñÒÑ¾­³õÊ¼»¯
+    int32_t                    m_is_malloc_mem_self; //æ˜¯å¦å·²ç»åˆå§‹åŒ–
     
 public:
     CH264SliceHeader();
     ~CH264SliceHeader();
     
-    CH264SliceHeader & operator = (const CH264SliceHeader &src); //ÖØÔØµÈºÅÔËËã·û
+    CH264SliceHeader & operator = (const CH264SliceHeader &src); //é‡è½½ç­‰å·è¿ç®—ç¬¦
     int copyData(const CH264SliceHeader &src, bool isCopyYuvData);
 
     int printInfo();

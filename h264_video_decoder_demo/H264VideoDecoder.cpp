@@ -1,4 +1,4 @@
-//
+ï»¿//
 // H264VideoDecoder.cpp
 // h264_video_decoder_demo
 //
@@ -77,7 +77,7 @@ int CH264VideoDecoder::open(const char *url)
     CH264PicturesGOP * pictures_gop = new CH264PicturesGOP;
     RETURN_IF_FAILED(pictures_gop == NULL, -1);
 
-    picture_current = pictures_gop->m_DecodedPictureBuffer[0]; //³õÊ¼»¯µÚÒ»¸öpicture_current
+    picture_current = pictures_gop->m_DecodedPictureBuffer[0]; //åˆå§‹åŒ–ç¬¬ä¸€ä¸ªpicture_current
 
     //---------------------
     while(1)
@@ -114,8 +114,8 @@ int CH264VideoDecoder::open(const char *url)
                     picture_current->m_current_picture_ptr->end_decode_the_picture_and_get_a_new_empty_picture(newEmptyPicture);
                     RETURN_IF_FAILED(ret != 0, ret);
                     
-                    is_need_flush = picture_current->m_picture_frame.m_h264_slice_header.m_nal_unit.IdrPicFlag; //µ±Ç°ÒÑ½âÂëÍê±ÏµÄÖ¡ÊÇ·ñÊÇIDRÖ¡
-                    ret = do_callback(picture_current, pictures_gop, is_need_flush); //»Øµ÷²Ù×÷
+                    is_need_flush = picture_current->m_picture_frame.m_h264_slice_header.m_nal_unit.IdrPicFlag; //å½“å‰å·²è§£ç å®Œæ¯•çš„å¸§æ˜¯å¦æ˜¯IDRå¸§
+                    ret = do_callback(picture_current, pictures_gop, is_need_flush); //å›è°ƒæ“ä½œ
                     if (ret != 0)
                     {
                         LOG_ERROR("do_callback() failed! ret=%d;\n", ret);
@@ -156,8 +156,8 @@ int CH264VideoDecoder::open(const char *url)
                     picture_current->m_current_picture_ptr->end_decode_the_picture_and_get_a_new_empty_picture(newEmptyPicture);
                     RETURN_IF_FAILED(ret != 0, ret);
                     
-                    is_need_flush = picture_current->m_picture_frame.m_h264_slice_header.m_nal_unit.IdrPicFlag; //µ±Ç°ÒÑ½âÂëÍê±ÏµÄÖ¡ÊÇ·ñÊÇIDRÖ¡
-                    ret = do_callback(picture_current, pictures_gop, is_need_flush); //»Øµ÷²Ù×÷
+                    is_need_flush = picture_current->m_picture_frame.m_h264_slice_header.m_nal_unit.IdrPicFlag; //å½“å‰å·²è§£ç å®Œæ¯•çš„å¸§æ˜¯å¦æ˜¯IDRå¸§
+                    ret = do_callback(picture_current, pictures_gop, is_need_flush); //å›è°ƒæ“ä½œ
                     if (ret != 0)
                     {
                         LOG_ERROR("do_callback() failed! ret=%d;\n", ret);
@@ -239,7 +239,7 @@ int CH264VideoDecoder::open(const char *url)
 
                 break; 
             }
-        case H264_NAL_IDR_SLICE: //5 Á¢¼´Ë¢ĞÂÖ¡£¨Ã¿¸öGOPµÄµÚÒ»Ö¡±ØĞëÊÇIÖ¡£©
+        case H264_NAL_IDR_SLICE: //5 ç«‹å³åˆ·æ–°å¸§ï¼ˆæ¯ä¸ªGOPçš„ç¬¬ä¸€å¸§å¿…é¡»æ˜¯Iå¸§ï¼‰
             {
                 if (sps_flag == 0 || pps_flag == 0)
                 {
@@ -259,8 +259,8 @@ int CH264VideoDecoder::open(const char *url)
                     picture_current->m_current_picture_ptr->end_decode_the_picture_and_get_a_new_empty_picture(newEmptyPicture);
                     RETURN_IF_FAILED(ret != 0, ret);
                     
-                    is_need_flush = picture_current->m_picture_frame.m_h264_slice_header.m_nal_unit.IdrPicFlag; //µ±Ç°ÒÑ½âÂëÍê±ÏµÄÖ¡ÊÇ·ñÊÇIDRÖ¡
-                    ret = do_callback(picture_current, pictures_gop, is_need_flush); //»Øµ÷²Ù×÷
+                    is_need_flush = picture_current->m_picture_frame.m_h264_slice_header.m_nal_unit.IdrPicFlag; //å½“å‰å·²è§£ç å®Œæ¯•çš„å¸§æ˜¯å¦æ˜¯IDRå¸§
+                    ret = do_callback(picture_current, pictures_gop, is_need_flush); //å›è°ƒæ“ä½œ
                     if (ret != 0)
                     {
                         LOG_ERROR("do_callback() failed! ret=%d;\n", ret);
@@ -309,7 +309,7 @@ int CH264VideoDecoder::open(const char *url)
                 }
 
                 pictures_gop->m_spss[sps.seq_parameter_set_id] = sps;
-                pictures_gop->max_num_reorder_frames = sps.m_vui.max_num_reorder_frames; //ÓÃÓÚ°´ÏÔÊ¾Ë³ĞòÊä³öBÖ¡
+                pictures_gop->max_num_reorder_frames = sps.m_vui.max_num_reorder_frames; //ç”¨äºæŒ‰æ˜¾ç¤ºé¡ºåºè¾“å‡ºBå¸§
                 sps_flag = 1;
                 break;
             }
@@ -350,25 +350,25 @@ int CH264VideoDecoder::open(const char *url)
         nal_cnt++;
     }
 
-    //--------flush²Ù×÷--------------
+    //--------flushæ“ä½œ--------------
     if (isStopLoop == 0)
     {
         if (picture_current)
         {
-            is_need_flush = picture_current->m_picture_frame.m_h264_slice_header.m_nal_unit.IdrPicFlag; //µ±Ç°ÒÑ½âÂëÍê±ÏµÄÖ¡ÊÇ·ñÊÇIDRÖ¡
-            ret = do_callback(picture_current, pictures_gop, is_need_flush); //»Øµ÷²Ù×÷
+            is_need_flush = picture_current->m_picture_frame.m_h264_slice_header.m_nal_unit.IdrPicFlag; //å½“å‰å·²è§£ç å®Œæ¯•çš„å¸§æ˜¯å¦æ˜¯IDRå¸§
+            ret = do_callback(picture_current, pictures_gop, is_need_flush); //å›è°ƒæ“ä½œ
             //RETURN_IF_FAILED(ret != 0, ret);
         }
 
         if (ret == 0)
         {
             is_need_flush = 1;
-            ret = do_callback(NULL, pictures_gop, is_need_flush); //×îºóÔÙ»Øµ÷Ò»´Î
+            ret = do_callback(NULL, pictures_gop, is_need_flush); //æœ€åå†å›è°ƒä¸€æ¬¡
             //RETURN_IF_FAILED(ret != 0, ret);
         }
     }
 
-    //----------ÔÙ»Øµ÷Ò»´Î¿ÕÖ¡£¬±íÊ¾½âÂë½áÊø---------------
+    //----------å†å›è°ƒä¸€æ¬¡ç©ºå¸§ï¼Œè¡¨ç¤ºè§£ç ç»“æŸ---------------
     int errorCode = H264_DECODE_ERROR_CODE_FILE_END;
 
     ret = m_output_frame_callback(NULL, m_userData, errorCode);
@@ -386,27 +386,27 @@ int CH264VideoDecoder::do_callback(CH264Picture *picture_current, CH264PicturesG
     CH264Picture * outPicture = NULL;
     int errorCode = 0;
 
-    if (is_need_flush) //ËµÃ÷µ±Ç°ÒÑ½âÂëÍê±ÏµÄÖ¡ÊÇIDRÖ¡
+    if (is_need_flush) //è¯´æ˜å½“å‰å·²è§£ç å®Œæ¯•çš„å¸§æ˜¯IDRå¸§
     {
         while(1)
         {
-            ret = pictures_gop->getOneOutPicture(NULL, outPicture); //flush²Ù×÷
+            ret = pictures_gop->getOneOutPicture(NULL, outPicture); //flushæ“ä½œ
             RETURN_IF_FAILED(ret != 0, ret);
 
             if (outPicture != NULL)
             {
                 if (m_output_frame_callback != NULL)
                 {
-                    ret = m_output_frame_callback(outPicture, m_userData, errorCode); //µ±ÕÒµ½¿ÉÊä³öµÄÖ¡Ê±£¬Ö÷¶¯Í¨ÖªÍâ²¿ÓÃ»§
+                    ret = m_output_frame_callback(outPicture, m_userData, errorCode); //å½“æ‰¾åˆ°å¯è¾“å‡ºçš„å¸§æ—¶ï¼Œä¸»åŠ¨é€šçŸ¥å¤–éƒ¨ç”¨æˆ·
                     if (ret != 0)
                     {
-                        return -1; //Ö±½ÓÍË³ö
+                        return -1; //ç›´æ¥é€€å‡º
                     }
                 }
 
-                outPicture->m_is_in_use = 0; //±ê¼ÇÎªÏĞÖÃ×´Ì¬£¬ÒÔ±ãºóĞø»ØÊÕÖØ¸´ÀûÓÃ
+                outPicture->m_is_in_use = 0; //æ ‡è®°ä¸ºé—²ç½®çŠ¶æ€ï¼Œä»¥ä¾¿åç»­å›æ”¶é‡å¤åˆ©ç”¨
             }
-            else //if (outPicture == NULL) //ËµÃ÷ÒÑ¾­flushÍê±Ï£¬DPB»º´æÖĞÒÑ¾­Ã»ÓĞ¿ÉÊä³öµÄÖ¡ÁË
+            else //if (outPicture == NULL) //è¯´æ˜å·²ç»flushå®Œæ¯•ï¼ŒDPBç¼“å­˜ä¸­å·²ç»æ²¡æœ‰å¯è¾“å‡ºçš„å¸§äº†
             {
                 break;
             }
@@ -421,14 +421,14 @@ int CH264VideoDecoder::do_callback(CH264Picture *picture_current, CH264PicturesG
     {
         if (m_output_frame_callback != NULL)
         {
-            ret = m_output_frame_callback(outPicture, m_userData, errorCode); //µ±ÕÒµ½¿ÉÊä³öµÄÖ¡Ê±£¬Ö÷¶¯Í¨ÖªÍâ²¿ÓÃ»§
+            ret = m_output_frame_callback(outPicture, m_userData, errorCode); //å½“æ‰¾åˆ°å¯è¾“å‡ºçš„å¸§æ—¶ï¼Œä¸»åŠ¨é€šçŸ¥å¤–éƒ¨ç”¨æˆ·
             if (ret != 0)
             {
-                return -1; //Ö±½ÓÍË³ö
+                return -1; //ç›´æ¥é€€å‡º
             }
         }
 
-        outPicture->m_is_in_use = 0; //±ê¼ÇÎªÏĞÖÃ×´Ì¬£¬ÒÔ±ãºóĞø»ØÊÕÖØ¸´ÀûÓÃ
+        outPicture->m_is_in_use = 0; //æ ‡è®°ä¸ºé—²ç½®çŠ¶æ€ï¼Œä»¥ä¾¿åç»­å›æ”¶é‡å¤åˆ©ç”¨
     }
     
     return 0;

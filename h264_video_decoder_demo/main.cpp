@@ -1,4 +1,4 @@
-//
+ï»¿//
 // main.cpp
 // h264_video_decoder_demo
 //
@@ -10,7 +10,7 @@
 #include "version.h"
 
 
-//H264½âÂëÆ÷£¬½âÂëÍêÒ»Ö¡ºóµÄ»Øµ÷º¯Êı
+//H264è§£ç å™¨ï¼Œè§£ç å®Œä¸€å¸§åçš„å›è°ƒå‡½æ•°
 int my_output_frame_callback(CH264Picture *outPicture, void *userData, int errorCode)
 {
     int ret = 0;
@@ -23,7 +23,7 @@ int my_output_frame_callback(CH264Picture *outPicture, void *userData, int error
 
         char filename[600] = {0};
         sprintf(filename, "%s/out_%dx%d.%d.bmp", outDir, outPicture->m_picture_frame.PicWidthInSamplesL, 
-            outPicture->m_picture_frame.PicHeightInSamplesL, s_PicNumCnt); //²»ÒªÓÃoutPicture->m_picture_frame.m_PicNumCntµÄÖµ£¬ÒòÎª¶ÔÓÚº¬ÓĞBÖ¡µÄÊÓÆµÀ´Ëµ£¬´ËÖµÊÇ½âÂëË³Ğò£¬²»ÊÇÖ¡ÏÔÊ¾Ë³Ğò
+            outPicture->m_picture_frame.PicHeightInSamplesL, s_PicNumCnt); //ä¸è¦ç”¨outPicture->m_picture_frame.m_PicNumCntçš„å€¼ï¼Œå› ä¸ºå¯¹äºå«æœ‰Bå¸§çš„è§†é¢‘æ¥è¯´ï¼Œæ­¤å€¼æ˜¯è§£ç é¡ºåºï¼Œä¸æ˜¯å¸§æ˜¾ç¤ºé¡ºåº
         
         printf("my_output_frame_callback(): m_PicNumCnt=%d(%s); PicOrderCnt=%d; filename=%s;\n", outPicture->m_picture_frame.m_PicNumCnt, 
             H264_SLIECE_TYPE_TO_STR(outPicture->m_picture_frame.m_h264_slice_header.slice_type), outPicture->m_picture_frame.PicOrderCnt, filename);
@@ -37,12 +37,12 @@ int my_output_frame_callback(CH264Picture *outPicture, void *userData, int error
 
         s_PicNumCnt++;
 
-        //if (s_PicNumCnt >= 200) //¿ÉÒÔÌáÇ°½áÊø½âÂë
+        //if (s_PicNumCnt >= 200) //å¯ä»¥æå‰ç»“æŸè§£ç 
         //{
             //return -1;
         //}
     }
-    else //if (outPicture == NULL) //±íÊ¾½âÂë½áÊøÁË
+    else //if (outPicture == NULL) //è¡¨ç¤ºè§£ç ç»“æŸäº†
     {
         return -1;
     }
@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
     CH264VideoDecoder vd;
     void *userData = outDir;
 
-    ret= vd.set_output_frame_callback_functuin(my_output_frame_callback, userData); //ÉèÖÃ»Øµ÷º¯Êı
+    ret= vd.set_output_frame_callback_functuin(my_output_frame_callback, userData); //è®¾ç½®å›è°ƒå‡½æ•°
 
     ret = vd.open(url);
     printf("vd.open(): url=%s; ret=%d;\n", url, ret);

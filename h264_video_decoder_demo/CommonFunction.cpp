@@ -1,4 +1,4 @@
-//
+ï»¿//
 // CommonFunction.cpp
 // h264_video_decoder_demo
 //
@@ -94,7 +94,7 @@ int getFileDirnameAndBasenameAndExtname(const char *fileName, std::string &dirNa
 }
 
 #if defined(_WIN32) || defined(_WIN64)
-int createNestedDir(const char *dir) //´´½¨Ç¶Ì×Ä¿Â¼
+int createNestedDir(const char *dir) //åˆ›å»ºåµŒå¥—ç›®å½•
 {
     if (strlen(dir) >= 600)
     {
@@ -109,7 +109,7 @@ int createNestedDir(const char *dir) //´´½¨Ç¶Ì×Ä¿Â¼
     strcpy(dir1, dir);
 
     int len = strlen(dir1);
-    if (len <= 3) // Èç¹ûÀàËÆ "D:\" Ôò·µ»Ø´íÎó
+    if (len <= 3) // å¦‚æœç±»ä¼¼ "D:\" åˆ™è¿”å›é”™è¯¯
     {
         return -1;
     }
@@ -160,7 +160,7 @@ int createNestedDir(const char *dir) //´´½¨Ç¶Ì×Ä¿Â¼
     return 0;
 }
 #else
-int createNestedDir(const char *dir) //´´½¨Ç¶Ì×Ä¿Â¼
+int createNestedDir(const char *dir) //åˆ›å»ºåµŒå¥—ç›®å½•
 {
     if (strlen(dir) >= 600)
     {
@@ -198,7 +198,7 @@ int createNestedDir(const char *dir) //´´½¨Ç¶Ì×Ä¿Â¼
             if (flag == 1)
             {
                 bRet = access(dir2, F_OK);
-                if (bRet != 0) //ÎÄ¼ş²»´æÔÚ
+                if (bRet != 0) //æ–‡ä»¶ä¸å­˜åœ¨
                 {
                     bRet = mkdir(dir2, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
                     if (bRet != 0)

@@ -1,4 +1,4 @@
-//
+ï»¿//
 // FileReader.h
 // h264_video_decoder_demo
 //
@@ -17,10 +17,10 @@ class CFileReader
 public:
     std::string        m_filename;
     FILE *             m_fp;
-    int                m_file_offset; //ÎÄ¼şÆ«ÒÆÁ¿
+    int                m_file_offset; //æ–‡ä»¶åç§»é‡
     int                m_buffer_size;
     unsigned char *    m_buffer_start;
-    unsigned char *    m_buffer_end; //ÒòÎªÂëÁ÷Êı¾İ²»Ò»¶¨ÌîÂúÕû¸öm_buffer[0..m_buffer_size]£¬ËùÒÔĞèÒªÒ»¸öendÖ¸Õë
+    unsigned char *    m_buffer_end; //å› ä¸ºç æµæ•°æ®ä¸ä¸€å®šå¡«æ»¡æ•´ä¸ªm_buffer[0..m_buffer_size]ï¼Œæ‰€ä»¥éœ€è¦ä¸€ä¸ªendæŒ‡é’ˆ
     unsigned char *    m_buffer_pointer_pos;
 
 public:

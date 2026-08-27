@@ -1,4 +1,4 @@
-//
+﻿//
 // H264MVCVUIExt.h
 // h264_video_decoder_demo
 //

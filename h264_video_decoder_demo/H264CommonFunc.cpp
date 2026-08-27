@@ -1,4 +1,4 @@
-//
+ï»¿//
 // H264CommonFunc.cpp
 // h264_video_decoder_demo
 //
@@ -85,20 +85,20 @@ int more_rbsp_data(CBitstream &bs)
     // more_rbsp_data( ) is equal to TRUE.
     // Otherwise, the return value of more_rbsp_data( ) is equal to FALSE.
     uint8_t * p1 = bs.m_end;
-    while(p1 > bs.m_p && *p1 == 0) //´ÓºóÍùÇ°ÕÒ£¬Ö±µ½ÕÒµ½µÚÒ»¸ö·Ç0Öµ×Ö½ÚÎ»ÖÃÎªÖ¹
+    while(p1 > bs.m_p && *p1 == 0) //ä»åå¾€å‰æ‰¾ï¼Œç›´åˆ°æ‰¾åˆ°ç¬¬ä¸€ä¸ªé0å€¼å­—èŠ‚ä½ç½®ä¸ºæ­¢
     {
         p1--;
     }
 
     if (p1 > bs.m_p)
     {
-        return 1; //ËµÃ÷µ±Ç°Î»ÖÃbs.m_pºóÃæ»¹ÓĞÂëÁ÷Êı¾İ
+        return 1; //è¯´æ˜å½“å‰ä½ç½®bs.m_påé¢è¿˜æœ‰ç æµæ•°æ®
     }
     else //if (p1 == bs.m_p)
     {
         int flag = 0;
         int i = 0;
-        for (i = 0; i < 8; i++) //ÔÚµ¥¸ö×Ö½ÚµÄ8¸ö±ÈÌØÎ»ÖĞ£¬´ÓºóÍùÇ°ÕÒ£¬ÕÒµ½rbsp_stop_one_bitÎ»ÖÃ
+        for (i = 0; i < 8; i++) //åœ¨å•ä¸ªå­—èŠ‚çš„8ä¸ªæ¯”ç‰¹ä½ä¸­ï¼Œä»åå¾€å‰æ‰¾ï¼Œæ‰¾åˆ°rbsp_stop_one_bitä½ç½®
         {
             int v = ((*(bs.m_p)) >> i) & 0x01;
             if (v == 1)

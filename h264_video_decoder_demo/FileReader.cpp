@@ -1,4 +1,4 @@
-//
+ï»¿//
 // FileReader.cpp
 // h264_video_decoder_demo
 //
@@ -140,7 +140,7 @@ int CFileReader::getNextH264NalUnitByStartCode(unsigned char *&data, int &size)
         m_buffer_end = m_buffer_start + readBytes;
     }
 
-    //È·±£m_buffer_pointer_pos[0..3]Ò»¶¨ÊÇ00 00 00 01ÆğÊ¼Âë
+    //ç¡®ä¿m_buffer_pointer_pos[0..3]ä¸€å®šæ˜¯00 00 00 01èµ·å§‹ç 
     while(1)
     {
         unsigned char * pos1 = NULL;
@@ -149,7 +149,7 @@ int CFileReader::getNextH264NalUnitByStartCode(unsigned char *&data, int &size)
         int startCodeLength2 = 0;
 
         ret = getNextStartCode(m_buffer_pointer_pos, m_buffer_end - m_buffer_pointer_pos + 1, pos1, pos2, startCodeLength1, startCodeLength2);
-        if (ret == 2) //ÔÚm_buffer_pointer_pos[0..end]ÖĞ£¬´Ó×óµ½ÓÒÕÒµ½ÁËÁ½¸öÁ¬ĞøµÄÆğÊ¼Âë£¬Ôò½áÊø²éÕÒ£¨¼´m_buffer_start[]Êı×é±ØĞëÄÜ¹»ÈİÄÉ³ß´ç×î´óµÄIÖ¡£©
+        if (ret == 2) //åœ¨m_buffer_pointer_pos[0..end]ä¸­ï¼Œä»å·¦åˆ°å³æ‰¾åˆ°äº†ä¸¤ä¸ªè¿ç»­çš„èµ·å§‹ç ï¼Œåˆ™ç»“æŸæŸ¥æ‰¾ï¼ˆå³m_buffer_start[]æ•°ç»„å¿…é¡»èƒ½å¤Ÿå®¹çº³å°ºå¯¸æœ€å¤§çš„Iå¸§ï¼‰
         {
             data = pos1 + startCodeLength1;
             size = pos2 - pos1 - startCodeLength1;
@@ -158,12 +158,12 @@ int CFileReader::getNextH264NalUnitByStartCode(unsigned char *&data, int &size)
             ret = 0;
             break;
         }
-        else if (ret == 1) //ÔÚm_buffer_pointer_pos[0..end]ÖĞ£¬´Ó×óµ½ÓÒÖ»ÕÒµ½ÁËµÚÒ»¸öÆğÊ¼Âë
+        else if (ret == 1) //åœ¨m_buffer_pointer_pos[0..end]ä¸­ï¼Œä»å·¦åˆ°å³åªæ‰¾åˆ°äº†ç¬¬ä¸€ä¸ªèµ·å§‹ç 
         {
-            // ½«00 00 00 01ÆğÊ¼ÂëÒÔ¼°Ö®ºóµÄÊı¾İ£¬ÏòÇ°ÒÆ¶¯£¬±£³ÖÓëm_buffer_start[0]¶ÔÆë
+            // å°†00 00 00 01èµ·å§‹ç ä»¥åŠä¹‹åçš„æ•°æ®ï¼Œå‘å‰ç§»åŠ¨ï¼Œä¿æŒä¸m_buffer_start[0]å¯¹é½
             if (pos1 > m_buffer_pointer_pos)
             {
-                //ÀàËÆ memmove(m_buffer_start, pos1, m_buffer_end - (pos1 - m_buffer_start) + 1);
+                //ç±»ä¼¼ memmove(m_buffer_start, pos1, m_buffer_end - (pos1 - m_buffer_start) + 1);
                 for (int i = 0; i < m_buffer_end - pos1 + 1; ++i)
                 {
                     m_buffer_start[i] = pos1[i];
@@ -175,8 +175,8 @@ int CFileReader::getNextH264NalUnitByStartCode(unsigned char *&data, int &size)
             int left_bytes = m_buffer_size - (m_buffer_end - m_buffer_pointer_pos + 2);
             if (left_bytes > 0)
             {
-                size_t readBytes = fread(m_buffer_end + 1, 1, left_bytes, m_fp); //´ÓÎÄ¼şÖĞ¶ÁÈ¡Êı¾İ
-                if (readBytes <= 0) //ËµÃ÷ÒÑ¾­¶Áµ½ÎÄ¼şÄ©Î²ÁË
+                size_t readBytes = fread(m_buffer_end + 1, 1, left_bytes, m_fp); //ä»æ–‡ä»¶ä¸­è¯»å–æ•°æ®
+                if (readBytes <= 0) //è¯´æ˜å·²ç»è¯»åˆ°æ–‡ä»¶æœ«å°¾äº†
                 {
                     pos2 = m_buffer_start + m_file_offset;
 
@@ -199,7 +199,7 @@ int CFileReader::getNextH264NalUnitByStartCode(unsigned char *&data, int &size)
                 LOG_ERROR("This nal unit is too large. 1111: m_buffer_size=%d; m_file_offset=%d;\n", m_buffer_size, m_file_offset);
             }
         }
-        else //ÔÚm_buffer_start[0..end]ÖĞ£¬´Ó×óµ½ÓÒÎ´ÕÒµ½Ò»¸öÆğÊ¼Âë
+        else //åœ¨m_buffer_start[0..end]ä¸­ï¼Œä»å·¦åˆ°å³æœªæ‰¾åˆ°ä¸€ä¸ªèµ·å§‹ç 
         {
             m_buffer_end = m_buffer_start;
             LOG_ERROR("Cannot found start code [00 00 01]. 2222: m_buffer_size=%d; m_file_offset=%d;\n", m_buffer_size, m_file_offset);

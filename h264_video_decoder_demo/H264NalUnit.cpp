@@ -1,4 +1,4 @@
-//
+ï»¿//
 // H264NalUnit.cpp
 // h264_video_decoder_demo
 //
@@ -88,7 +88,7 @@ CH264NalUnit & CH264NalUnit::operator = (const CH264NalUnit &src)
     int ret = 0;
     bool isMallocAndCopyData = false;
 
-    ret = copyData(src, isMallocAndCopyData); //ÖØÔØµÄµÈºÅÔËËã·û
+    ret = copyData(src, isMallocAndCopyData); //é‡è½½çš„ç­‰å·è¿ç®—ç¬¦
 
     return *this;
 }

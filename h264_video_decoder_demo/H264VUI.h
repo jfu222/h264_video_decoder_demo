@@ -1,4 +1,4 @@
-//
+ï»¿//
 // H264VUI.h
 // h264_video_decoder_demo
 //
@@ -51,7 +51,7 @@ public:
     int32_t     max_bits_per_mb_denom;
     int32_t     log2_max_mv_length_horizontal;
     int32_t     log2_max_mv_length_vertical;
-    int32_t     max_num_reorder_frames; //indicates an upper bound for the number of frames buffers, in the decoded picture buffer (DPB). ´óÓÚµÈÓÚ2±íÊ¾º¬ÓĞBÖ¡
+    int32_t     max_num_reorder_frames; //indicates an upper bound for the number of frames buffers, in the decoded picture buffer (DPB). å¤§äºç­‰äº2è¡¨ç¤ºå«æœ‰Bå¸§
     int32_t     max_dec_frame_buffering;
 
     CHrdParameters    m_hrd_parameter_nal;
