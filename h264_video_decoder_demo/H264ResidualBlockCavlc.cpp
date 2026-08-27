@@ -348,7 +348,7 @@ int CH264ResidualBlockCavlc::get_nC(CH264PictureBase &picture, MB_RESIDUAL_LEVEL
             BlkIdxA = luma4x4BlkIdxN_A;
             BlkIdxB = luma4x4BlkIdxN_B;
         }
-        else if (mb_residual_level == MB_RESIDUAL_CbIntra16x16DCLevel || mb_residual_level == MB_RESIDUAL_CbIntra16x16DCLevel || mb_residual_level == MB_RESIDUAL_CbLevel4x4)
+        else if (mb_residual_level == MB_RESIDUAL_CbIntra16x16DCLevel || mb_residual_level == MB_RESIDUAL_CbIntra16x16ACLevel || mb_residual_level == MB_RESIDUAL_CbLevel4x4)
         {
             //6.4.11.6 Derivation process for neighbouring 4x4 chroma blocks for ChromaArrayType equal to 3
             RETURN_IF_FAILED(slice_header.m_sps.ChromaArrayType != 3, -1);
@@ -502,7 +502,7 @@ int CH264ResidualBlockCavlc::get_nC(CH264PictureBase &picture, MB_RESIDUAL_LEVEL
                 {
                     nA = picture.m_mbs[mbAddrN_A].mb_luma_4x4_non_zero_count_coeff[BlkIdxA];
                 }
-                else if (mb_residual_level == MB_RESIDUAL_CbIntra16x16DCLevel || mb_residual_level == MB_RESIDUAL_CbIntra16x16DCLevel || mb_residual_level == MB_RESIDUAL_CbLevel4x4)
+                else if (mb_residual_level == MB_RESIDUAL_CbIntra16x16DCLevel || mb_residual_level == MB_RESIDUAL_CbIntra16x16ACLevel || mb_residual_level == MB_RESIDUAL_CbLevel4x4)
                 {
                     nA = picture.m_mbs[mbAddrN_A].mb_chroma_4x4_non_zero_count_coeff[0][BlkIdxA];
                 }
@@ -537,7 +537,7 @@ int CH264ResidualBlockCavlc::get_nC(CH264PictureBase &picture, MB_RESIDUAL_LEVEL
                 {
                     nB = picture.m_mbs[mbAddrN_B].mb_luma_4x4_non_zero_count_coeff[BlkIdxB];
                 }
-                else if (mb_residual_level == MB_RESIDUAL_CbIntra16x16DCLevel || mb_residual_level == MB_RESIDUAL_CbIntra16x16DCLevel || mb_residual_level == MB_RESIDUAL_CbLevel4x4)
+                else if (mb_residual_level == MB_RESIDUAL_CbIntra16x16DCLevel || mb_residual_level == MB_RESIDUAL_CbIntra16x16ACLevel || mb_residual_level == MB_RESIDUAL_CbLevel4x4)
                 {
                     nB = picture.m_mbs[mbAddrN_B].mb_chroma_4x4_non_zero_count_coeff[0][BlkIdxB];
                 }
